@@ -34,8 +34,8 @@
 </nav>
 
 <div class="container">
-    <div class="row py-2">
-        <div class="col-12">
+    <div class="row py-2 pt-5 mt-5">
+        <div class="col-12 mt-5 pt-5">
             <form th:action="@{/auth}" method="post">
                 <div class="form-group">
                     <label for="username">Имя пользователя</label>
@@ -46,6 +46,7 @@
                     <label for="password">Пароль</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Введите пароль">
                 </div>
+                <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 <button type="submit" class="btn btn-primary">Логин</button>
                 <a class="px-3" th:href="@{register}">Зарегистрироваться</a>
             </form>

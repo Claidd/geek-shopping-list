@@ -38,8 +38,7 @@ public class MainSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf()
-                .disable()
+
                 .authorizeHttpRequests()
                 .requestMatchers("/login").permitAll()
                 .requestMatchers("/register").permitAll()
@@ -50,7 +49,7 @@ public class MainSecurityConfig {
                 .loginProcessingUrl("/auth")
                 .and()
                 .logout()
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/login").deleteCookies("JSESSIONID")
                 .permitAll()
                 .and()
                 .sessionManagement();
