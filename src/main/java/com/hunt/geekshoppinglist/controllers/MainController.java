@@ -37,7 +37,7 @@ public class MainController {
         return "redirect:/";
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping("/{id}")
     public String newShoppingItem(@PathVariable Long id){
         itemService.deleteShoppingItem(id);
         return "redirect:/";
